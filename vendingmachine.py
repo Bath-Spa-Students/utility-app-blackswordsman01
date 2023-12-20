@@ -19,7 +19,6 @@ class VendingMachine:
     def display_heading(self):
         print("""𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓔𝓵𝔀𝓷𝓷'𝓼 𝓥𝓮𝓷𝓭𝓲𝓷𝓰 𝓜𝓪𝓬𝓱𝓲𝓷𝓮""")
 
-
     def display_menu(self):
         print("\nMENU:")
         for code, item in self.menu.items():
@@ -62,6 +61,7 @@ class VendingMachine:
     def run(self):
         self.display_heading()
         self.input_money()  # Ask the user to insert money at the beginning
+        initial_money = self.money_inserted
         while True:
             self.display_menu()
             code = self.input_code()
@@ -86,7 +86,9 @@ class VendingMachine:
                 print("Sorry, the vending machine is out of stock.")
                 break
             self.money_inserted = change  # Use the remaining money for the next purchase
-        print(f"\nTotal Change: ${self.total_change:.2f}")
+        remaining_money = self.money_inserted
+        self.money_inserted = initial_money  # Reset money_inserted to the initial value
+        print(f"Total Change: ${remaining_money:.2f}")
         print("\nThank you for using the Vending Machine!")
 
 # Run the vending machine
