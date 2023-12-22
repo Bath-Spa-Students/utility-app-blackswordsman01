@@ -2,14 +2,14 @@ class VendingMachine:
     def __init__(self):
         # Initialize the vending machine with a menu, stock, and money variables
         self.menu = {
-            "1": {"item": "Snickers Bar", "price": 1.50, "stock": 5},
+            "1": {"item": "Snickers Bar", "price": 2.00, "stock": 5},
             "2": {"item": "Water Bottle", "price": 1.00, "stock": 10},
             "3": {"item": "Sun Chips", "price": 2.00, "stock": 7},
-            "4": {"item": "Cold Coffee", "price": 2.50, "stock": 5},
-            "5": {"item": "Cheez-its", "price": 1.75, "stock": 8},
-            "6": {"item": "Dr Pepper", "price": 1.25, "stock": 6},
-            "7": {"item": "Goldfish Pretzels", "price": 1.80, "stock": 4},
-            "8": {"item": "Honest Tea", "price": 2.20, "stock": 3}
+            "4": {"item": "Cold Coffee", "price": 2.00, "stock": 5},
+            "5": {"item": "Cheez-its", "price": 1.00, "stock": 8},
+            "6": {"item": "Dr Pepper", "price": 2.00, "stock": 6},
+            "7": {"item": "Goldfish Pretzels", "price": 3.00, "stock": 1},
+            "8": {"item": "Honest Tea", "price": 2.00, "stock": 3}
         }
         self.money_inserted = 0.0
         self.total_change = 0.0
@@ -79,8 +79,13 @@ class VendingMachine:
             item = self.menu[code]
             price = item["price"]
             if self.money_inserted < price:
-                print("Insufficient funds. Please insert more money.")
-                break
+                print("Insufficient funds.")
+                user_input = input("Do you want to insert more money? (Type 'yes' or 'no'): ").upper()
+                if user_input == 'YES':
+                    self.input_money()
+                    continue
+                else:
+                    break
             change = self.calculate_change(self.money_inserted, price)
             self.dispense_item(item["item"])
             self.total_change += change
