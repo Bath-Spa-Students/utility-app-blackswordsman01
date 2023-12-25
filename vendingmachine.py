@@ -2,14 +2,14 @@ class VendingMachine:
     def __init__(self):
         # Initialize the vending machine with a menu, stock, and money variables
         self.menu = {
-            "1": {"item": "Snickers Bar", "price": 2.00, "stock": 5},
+            "1": {"item": "Snickers Bar", "price": 4.00, "stock": 5},
             "2": {"item": "Water Bottle", "price": 1.00, "stock": 10},
-            "3": {"item": "Sun Chips", "price": 2.00, "stock": 7},
-            "4": {"item": "Cold Coffee", "price": 2.00, "stock": 5},
-            "5": {"item": "Cheez-its", "price": 1.00, "stock": 8},
-            "6": {"item": "Dr Pepper", "price": 2.00, "stock": 6},
-            "7": {"item": "Goldfish Pretzels", "price": 3.00, "stock": 1},
-            "8": {"item": "Honest Tea", "price": 2.00, "stock": 3}
+            "3": {"item": "Sun Chips", "price": 5.00, "stock": 7},
+            "4": {"item": "Cold Coffee", "price": 4.00, "stock": 5},
+            "5": {"item": "Cheez-its", "price": 6.00, "stock": 8},
+            "6": {"item": "Dr Pepper", "price": 7.00, "stock": 6},
+            "7": {"item": "Goldfish Pretzels", "price": 7.00, "stock": 1},
+            "8": {"item": "Honest Tea", "price": 3.00, "stock": 3}
         }
         self.money_inserted = 0.0
         self.total_change = 0.0
